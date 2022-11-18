@@ -8,7 +8,7 @@ and open page <http://localhost:8080>.
 
 ## Details
 
-There is an index page callable with an optional language code, where cities from the cities.json file are selectable. I used mustache to implement the language support.
+There is an index page callable with an optional language code, where cities from the cities.json file are selectable. I used handlebars to implement the language support.
  
 On selection it calls the /api path with a city parameter to get the current weather information from openweathermap.org. The results are cached in a db.json file for 10 minutes. 
 
