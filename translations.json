@@ -1,0 +1,18 @@
+{
+    "EN": {
+        "language": "Language:",
+        "greeting": "Welcome!",
+        "selectCity": "Select city:",
+        "results": "Results:",
+        "RequestError": "Error in request",
+        "ServerError": "Error on the server"
+    },
+    "HU": {
+        "language": "Nyelv:",
+        "greeting": "Üdv!",
+        "selectCity": "Válassz várost:",
+        "results": "Eredmény:",
+        "RequestError": "Hibás lekérdezés",
+        "ServerError": "Hiba a szerveren"
+    }
+}

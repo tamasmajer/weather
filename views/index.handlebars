@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- disable favicon -->
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+</head>
+
+<body>
+    <div>
+        {{ locale.language }}
+        {{#languages}}
+            <a href="?lang={{.}}">{{.}}</a>
+        {{/languages}}
+    </div>
+    <hr>
+    <div>{{ locale.greeting }}</div>
+    <hr>
+    <div>
+        {{ locale.selectCity }}
+        <select id="selector">
+            {{#cities}}
+            <option value="{{.}}">{{.}}</option>
+            {{/cities}}
+        </select>
+    </div>
+    <hr>
+    <div>
+        {{ locale.results }}
+    </div>
+    <pre id="display"></pre>
+    <script>
+        const RequestError="{{ locale.RequestError }}"
+        const ServerError="{{ locale.ServerError }}"
+        const selector = document.getElementById('selector')
+        const display = document.getElementById('display')
+        const update = async () => {
+            const city = selector.value
+            const resp = await fetch(`/api?city=${city}`)
+            const status = resp.status
+            const result = await resp.json()
+            if(status===400) display.innerText=RequestError
+            else if(status===500) display.innerText=ServerError
+            else display.innerText = JSON.stringify(result, null, 4)
+        }
+        selector.onchange = update
+        update()
+    </script>
+</body>
+
+</html>
