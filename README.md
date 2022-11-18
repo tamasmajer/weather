@@ -3,13 +3,10 @@
 To start:
 > npm run dev
 
+and open page <http://localhost:8080>.
 
 
-The page <http://localhost:8080> just prints the results of the API call like this:
-
-![screen](./doc/screen.jpg)
-
-## Implementation details
+## Details
 
 There is an index page callable with an optional language code, where cities from the cities.json file are selectable. I used mustache to implement the language support.
  
@@ -24,4 +21,10 @@ DB and log files are optional and can be turned off in the dotenv config file.
 There is some error handling on the server, on the client side errors are simplified into 2 categories request or server error. 
 
 I will commit the log files for documentation.
+
+## Screenshot
+
+The page just prints the results of the API call like this. If there is an error then prints a localized error message.
+
+![screen](./doc/screen.jpg)
 
